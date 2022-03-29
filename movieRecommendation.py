@@ -23,7 +23,7 @@ class Neo4j:
 
 def Recommendation(movie):
     nlp = spacy.load("en_core_web_sm")
-    neo = Neo4j("bolt://localhost:7687","neo4j","password")
+    neo = Neo4j("bolt://localhost:7687","neo4j","izdZ_mHvGKTRsogTc-gLrn2VeD4QNpSyPmhLSpFhukY")
 
     movieliked = neo.query(f'''
         match (p:Person) -[r1:WATCHED] -> (m:Movie)
