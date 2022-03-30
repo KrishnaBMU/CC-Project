@@ -4,7 +4,7 @@ import traceback
 from movieRecommendation import Recommendation
 from textRank import textRank
 from textToGraph import NER
-# from textSentiment import predict
+from textSentiment import predict
 import json
 
 app = Flask(__name__)
@@ -62,11 +62,11 @@ def NERTextInput():
 
 # Text Sentiment
 @app.route("/textSentiment")
-def textSummarization():
+def textSentiment():
     return render_template("textSentiment.html")
 
 @app.route("/textSentiment",methods=["POST"])
-def TextInput():
+def SentimentTextInput():
     try:
         Output = predict(request.form["InputText"])
     except Exception as e:

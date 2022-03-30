@@ -10,11 +10,9 @@ labels = ["Negative","Positive"]
 tokenizer = pickle.load(open("./model/BERT/"+ "tokenizer.pickle","rb"))
 
 def predict(inputText):
+    inputText = [inputText]
     predict_input = tokenizer(inputText,truncation=True,padding=True,return_tensors="tf")
     tf_output = model.predict(dict(predict_input))
-    
-    for i in range(len(inputText)):
-        inputText[i] = " ".join(inputText[i])
 
     tf_prediction = tf.nn.softmax(tf_output[0], axis=1)
     label = tf.argmax(tf_prediction, axis=1)
@@ -24,4 +22,5 @@ def predict(inputText):
         output_sentiment.append(labels[i])
     return output_sentiment
 
-predict("who is this")
+print("Output: ")
+print(predict("who is this"))
