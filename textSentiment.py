@@ -22,5 +22,5 @@ def predict(inputText):
         output_sentiment.append(labels[i])
     return output_sentiment
 
-print("Output: ")
-print(predict("who is this"))
+# print("Output: ")
+# print(predict("who is this"))
