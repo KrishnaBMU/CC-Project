@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
         body{
             width:100vw;
             height: 100vh;
-            background-color: #EF5354;
+            background-color: #fbfffe;
         }
 
-        .Heading{ padding-top: 1%;
+        .Heading{ 
+            padding-top: 1%;
             position: absolute;
             padding-top: 3%;
             width: 100%;
-            color: rgb(255, 209, 209);
-            text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            color: #1b1b1e;
             text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
-            font-weight: bold;
-
+            font-size: 52px;
+            font-weight: 300;
         }
 
         .Container{
@@ -34,12 +35,9 @@
         }
 
         .SubContainer{
-            background-color: #faadad;
-            opacity: 0.8;
-            border-radius: 30px;
-            width: 500px;
-            height: 350px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            border-radius: 5px;
+            width: 600px;
+            height: 500px;
         }
 
         #frame1{
@@ -51,49 +49,55 @@
             justify-content: center;
         }
 
+        .button_slide {
+        color: #1b1b1e;
+        border: 2px solid #d7fdec;
+        border-radius: 0px;
+        padding: 18px 36px;
+        display: inline-block;
+        font-family: "Roboto";
+        font-size: 22px;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 0 #d7fdec;
+        -webkit-transition: ease-out 0.4s;
+        -moz-transition: ease-out 0.4s;
+        transition: ease-out 0.4s;
+        }
+        .slide_down:hover {
+        box-shadow: inset 0 100px 0 0 #a9fbd7;
+        }
+
+        .slide_right:hover {
+        box-shadow: inset 400px 0 0 0 #a9fbd7;
+        }
+
+        .slide_left:hover {
+        box-shadow: inset 0 0 0 50px #a9fbd7;
+        }
+
+        .slide_diagonal:hover {
+        box-shadow: inset 400px 50px 0 0 #a9fbd7;
+        }
+
         .button{
             text-align: center;
-            font-family: Roboto;
+            font-family: 'Roboto';
             font-style: normal;
-            font-weight: bold;
-            font-size: large;
+            font-size: 20px;
             padding: 1px 25px;
-            background-color: #C36C6C;
-            border-radius: 10px;
+            background-color: #a9fbd7;
+            border-radius: 5px;
             box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
-            border-color: #C36C6C;
+            border-color: #a9fbd7;
             cursor: pointer;
             /* height: 50px; */
-            width: 200px;
+            width: 400px;
         }
 
         #button:active{
             text-decoration-color: black;
             color: black;
             box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-        }
-        .btnMovieRecommendation:hover {
-            background-color: #f5bbca;
-            border-color: #f5bbca;
-            -webkit-transition: background-color 300ms linear;
-            -ms-transition: background-color 300ms linear;
-            transition: background-color 300ms linear;
-        }
-
-        .btnTextSummarization:hover {
-            background-color: #e5bc00;
-            border-color: #e5bc00;
-            -webkit-transition: background-color 300ms linear;
-            -ms-transition: background-color 300ms linear;
-            transition: background-color 300ms linear;
-        }
-
-        .btnTexttoGraph:hover {
-            background-color: #9bd2e2;
-            border-color: #9bd2e2;
-            -webkit-transition: background-color 300ms linear;
-            -ms-transition: background-color 300ms linear;
-            transition: background-color 300ms linear;
         }
 
         @media only screen and (max-width :700px){
@@ -116,21 +120,27 @@
         function textToGraph(){
             window.location.href = "textToGraph"
         }
+        function textSentiment(){
+            window.location.href = "textSentiment"
+        }
     </script>
 </head>
 <body>
-    <h1 class="Heading">Text Analysis</h1>
+    <h1 class="Heading">Textual Analysis</h1>
     <div class="Container">
         <div class="SubContainer">
             <div id="frame1">
-                <button class="button btnMovieRecommendation" onclick="movieRecommendation()">
-                    <p class="Text">Movie Recommendation</p>
+                <button class="button_slide slide_diagonal" onclick="movieRecommendation()">
+                    <p class="Text">Get movie recommendations</p>
                 </button>
-                <button class="button btnTexttoGraph" onclick="textToGraph()">
-                    <p class="Text">Text to Graph Generation</p>
+                <button class="button_slide slide_down" onclick="textToGraph()">
+                    <p class="Text">Generate graphs from text</p>
                 </button>
-                <button class="button btnTextSummarization" onclick="textSummarization()">
-                    <p class="Text">Text summarization</p>
+                <button class="button_slide slide_left" onclick="textSummarization()">
+                    <p class="Text">Summarize text</p>
+                </button>
+                <button class="button_slide slide_right" onclick="textSentiment()">
+                    <p class="Text">Text Analysis</p>
                 </button>
             </div>
         </div>

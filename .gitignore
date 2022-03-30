@@ -7,3 +7,5 @@ data/.DS_Store
 templates/index.html
 data/MovieGenre.csv
 data/movies_metadata.csv
+tokenizer.pkl
+imdb_model.h5
